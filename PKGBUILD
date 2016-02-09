@@ -12,7 +12,6 @@ sha256sums=('9d6ad4a0b918b342ad2ee9230cce8a095eb601cb0cee6ddc1122d0481f9d04c9')
 
 build() {
   cd libdbusmenu-${pkgver}
-
   export HAVE_VALGRIND_TRUE='#'
   export HAVE_VALGRIND_FALSE=''
   ./configure --prefix='/usr' --sysconfdir='/etc' --localstatedir='/var' --disable-{dumper,static,tests}
@@ -21,7 +20,6 @@ build() {
 
 package() {
   cd libdbusmenu-${pkgver}
-
   make -C libdbusmenu-glib DESTDIR="${pkgdir}" install
   make -C libdbusmenu-gtk DESTDIR="${pkgdir}" install
   make -C libdbusmenu-glib DESTDIR="${pkgdir}" uninstall
